@@ -1,13 +1,13 @@
 {
-  "name": "nest-microservices-playground-e2e",
+  "name": "admin-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "implicitDependencies": ["nest-microservices-playground"],
+  "implicitDependencies": ["admin"],
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
       "options": {
-        "jestConfig": "apps/nest-microservices-playground-e2e/jest.config.ts",
+        "jestConfig": "apps/admin-e2e/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -15,9 +15,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/nest-microservices-playground-e2e/**/*.{js,ts}"
-        ]
+        "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
       }
     }
   }

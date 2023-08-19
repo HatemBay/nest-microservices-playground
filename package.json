@@ -2,7 +2,9 @@
   "name": "@nest-microservices-playground/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:dev:admin": "nx serve admin"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
