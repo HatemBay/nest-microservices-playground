@@ -6,7 +6,7 @@ const config: TypeOrmModuleOptions = {
   host: 'localhost',
   port: 3306,
   username: 'root',
-  password: 'root',
+  password: '',
   database: 'admin_db',
   autoLoadEntities: true,
   synchronize: true,
