@@ -1,5 +1,4 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
 
 // * We can use this instead of defining IProduct and add it as type in the injected model
 // export type ProductDocument = Product & Document;
