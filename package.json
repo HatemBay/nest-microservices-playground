@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:dev:admin": "nx serve admin"
+    "start:dev:admin": "nx serve admin",
+    "start:dev:main": "nx serve main"
   },
   "private": true,
   "dependencies": {
