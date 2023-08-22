@@ -22,15 +22,23 @@ export class ProductsService {
     return this.productsRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async findOne(id: number): Promise<Product> {
+    const product = await this.productsRepository.findOneOrFail({
+      where: { id: id },
+    });
+    return product;
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(id: number, updateProductDto: UpdateProductDto) {
+    const oldProduct = await this.findOne(id);
+    oldProduct.title = updateProductDto.title;
+    oldProduct.image = updateProductDto.image;
+    return this.productsRepository.save(oldProduct);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
+  async remove(id: number) {
+    const oldProduct = await this.findOne(id);
+
+    return this.productsRepository.remove(oldProduct);
   }
 }
