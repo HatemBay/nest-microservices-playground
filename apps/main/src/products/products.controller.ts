@@ -45,6 +45,7 @@ export class ProductsController {
     return await this.productsService.remove(id);
   }
 
+  //++++++++++++ Received events from admin ++++++++++++
   @EventPattern('product_created')
   async handleCreatedProduct(product: IProduct): Promise<IProduct> {
     return await this.productsService.createFromEvent(product);

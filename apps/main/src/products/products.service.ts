@@ -20,13 +20,6 @@ export class ProductsService {
     return await newProduct.save();
   }
 
-  async createFromEvent(product: IProduct): Promise<IProduct> {
-    const newProduct = new this.productModel(product);
-
-    const savedProduct = await newProduct.save();
-    return savedProduct;
-  }
-
   async findAll(): Promise<IProduct[]> {
     const products = await this.productModel.find();
     if (!products || products.length == 0) {
@@ -58,6 +51,24 @@ export class ProductsService {
     return existingProduct;
   }
 
+  async remove(id: string): Promise<IProduct> {
+    const productToDelete = await this.productModel.findByIdAndDelete(id);
+
+    if (!productToDelete) {
+      throw new NotFoundException(`Product ${id} not found`);
+    }
+    return productToDelete;
+  }
+
+  //++++++++++++ Received events from admin ++++++++++++
+
+  async createFromEvent(product: IProduct): Promise<IProduct> {
+    const newProduct = new this.productModel(product);
+
+    const savedProduct = await newProduct.save();
+    return savedProduct;
+  }
+
   async updateFromEvent(product: IProduct): Promise<IProduct> {
     const existingProduct = await this.productModel.findOneAndUpdate(
       { id: product.id },
@@ -71,16 +82,6 @@ export class ProductsService {
 
     return existingProduct;
   }
-
-  async remove(id: string): Promise<IProduct> {
-    const productToDelete = await this.productModel.findByIdAndDelete(id);
-
-    if (!productToDelete) {
-      throw new NotFoundException(`Product ${id} not found`);
-    }
-    return productToDelete;
-  }
-
   async removeFromEvent(id: number): Promise<IProduct> {
     const productToDelete = await this.productModel.findOneAndDelete({
       id,

@@ -18,10 +18,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const port = process.env.PORT || 3000;
   await app.listen(3000);
-  Logger.log(
-    // `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
-    `🚀 Application is running on: http://localhost:${port}`
-  );
+  Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
 
 bootstrap();
