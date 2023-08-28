@@ -19,6 +19,8 @@ async function bootstrap() {
       ],
       queue: 'main_queue',
       queueOptions: {
+        // * Queue can be durable which means it's stored on the hard disk or
+        // * transient meaning that's it's stored in the RAM
         durable: false,
       },
     },

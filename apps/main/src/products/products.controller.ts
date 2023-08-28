@@ -8,10 +8,9 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
 import { EventPattern } from '@nestjs/microservices';
 import { Product } from './entities/product.entity';
+import { CreateProductDto, UpdateProductDto } from '@app/shared-dto';
 
 @Controller('products')
 export class ProductsController {

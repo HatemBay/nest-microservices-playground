@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "shared-dto": {
+      "type": "library",
+      "root": "libs/shared-dto",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared-dto/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared-dto/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

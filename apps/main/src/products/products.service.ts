@@ -1,10 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './entities/product.entity';
 import { Model } from 'mongoose';
 import { HttpService } from '@nestjs/axios';
+import { CreateProductDto, UpdateProductDto } from '@app/shared-dto';
 import { IProduct } from './interfaces/product.interface';
 
 @Injectable()
@@ -95,6 +94,7 @@ export class ProductsService {
     }
     return existingProduct;
   }
+
   async removeFromEvent(id: number): Promise<Product> {
     const productToDelete = await this.productModel.findOneAndDelete({
       id,
